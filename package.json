@@ -1,0 +1,25 @@
+{
+    "name": "social-network-api",
+    "version": "1.0.0",
+    "description": "A social network API using Express.js, MongoDB, and Mongoose",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "keywords": [
+      "social",
+      "network",
+      "api",
+      "express",
+      "mongodb",
+      "mongoose"
+    ],
+    "author": "ImperialSpaceCoalition",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1",
+      "mongoose": "^6.2.2",
+      "dotenv": "^16.0.0"
+    }
+  }
+  
