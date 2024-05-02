@@ -1,6 +1,6 @@
 // routes/api/thought-routes.js
 const router = require('express').Router();
-const { getAllThoughts, createThought, updateThought } = require('../../controllers/thought-controller');
+const { getAllThoughts, createThought, updateThought, deleteThought } = require('../../controllers/thought-controller');
 
 // GET all thoughts
 router.get('/', getAllThoughts);
@@ -10,6 +10,9 @@ router.post('/', createThought);
 
 // Update thought
 router.put('/:id', updateThought);
+
+//Delete thought
+router.delete('/:id', deleteThought);
 
 
 

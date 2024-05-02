@@ -29,6 +29,15 @@ updateThought(req, res) {
       console.error(err);
       res.status(400).json(err);
     });
+},
+// Delete an existing thought
+deleteThought(req, res) {
+  Thought.findByIdAndDelete(req.params.id)
+    .then(dbThoughtData => res.json(dbThoughtData))
+    .catch(err => {
+      console.error(err);
+      res.status(400).json(err);
+    });
 }
 };
 
