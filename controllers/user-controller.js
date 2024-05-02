@@ -1,24 +1,18 @@
+// controllers/user-controller.js
 const { User } = require('../models/User');
 
 const userController = {
+  // Get all users
   getAllUsers(req, res) {
-    return User.find({})
-      .populate({
-        path: 'thoughts',
-        select: '-__v'
-      })
-      .populate({
-        path: 'friends',
-        select: '-__v'
-      })
+    User.find({})
       .select('-__v')
       .then(dbUserData => res.json(dbUserData))
       .catch(err => {
         console.error(err);
         res.status(500).json(err);
       });
-  },
-  // Other controller methods...
+  }
 };
 
 module.exports = userController;
+

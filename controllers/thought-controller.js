@@ -1,20 +1,18 @@
-const { Thought, User } = require('../models');
+// controllers/thought-controller.js
+const { Thought } = require('../models/Thought');
 
 const thoughtController = {
+  // Get all thoughts
   getAllThoughts(req, res) {
     Thought.find({})
-      .populate({
-        path: 'reactions',
-        select: '-__v'
-      })
       .select('-__v')
       .then(dbThoughtData => res.json(dbThoughtData))
       .catch(err => {
         console.error(err);
         res.status(500).json(err);
       });
-  },
-  // Other controller methods...
+  }
 };
 
 module.exports = thoughtController;
+
