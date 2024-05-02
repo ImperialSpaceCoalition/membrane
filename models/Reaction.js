@@ -1,15 +1,10 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema, model } = require('mongoose');
 
 const reactionSchema = new Schema({
-  reactionId: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId()
-  },
   reactionBody: {
     type: String,
     required: true,
-    maxlength: 280
+    maxlength: 280 // Adjust as needed
   },
   username: {
     type: String,
@@ -21,7 +16,8 @@ const reactionSchema = new Schema({
   }
 });
 
-const Reaction = mongoose.model('Reaction', reactionSchema);
+const Reaction = model('Reaction', reactionSchema);
 
 module.exports = Reaction;
+
 

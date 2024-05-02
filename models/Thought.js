@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Reaction = require('./Reaction'); // Import Reaction model
 
 const thoughtSchema = new Schema({
   thoughtText: {
@@ -14,11 +15,13 @@ const thoughtSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  reactions: [Reaction.schema] // Embed Reaction schema as an array
 });
 
 const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
+
 
 
