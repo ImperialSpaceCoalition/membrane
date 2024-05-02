@@ -20,7 +20,25 @@ const userController = {
         console.error(err);
         res.status(400).json(err);
       });
-  }
+  },
+  // Update an existing user
+updateUser(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.error(err);
+      res.status(400).json(err);
+    });
+},
+// Delete an existing user
+deleteUser(req, res) {
+  User.findByIdAndDelete(req.params.id)
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.error(err);
+      res.status(400).json(err);
+    });
+}
 };
 
 
