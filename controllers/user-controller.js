@@ -38,6 +38,38 @@ deleteUser(req, res) {
       console.error(err);
       res.status(400).json(err);
     });
+},
+// Add a friend to a user's friend list
+addFriend(req, res) {
+  User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      { new: true }
+  )
+  .then(dbUserData => {
+      if (!dbUserData) {
+          res.status(404).json({ message: 'No user found with this id!' });
+          return;
+      }
+      res.json(dbUserData);
+  })
+  .catch(err => res.status(500).json(err));
+},
+// Remove a friend from a user's friend list
+removeFriend(req, res) {
+  User.findOneAndUpdate(
+    { _id: req.params.userId },
+    { $pull: { friends: req.params.friendId } },
+    { new: true }
+  )
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id!' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => res.status(500).json(err));
 }
 };
 

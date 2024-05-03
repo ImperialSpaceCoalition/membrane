@@ -13,7 +13,12 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     match: [/.+@.+\..+/, 'Please enter a valid email address']
-  }
+  },
+  // Array to store IDs of friends
+  friends: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 });
 
 const User = model('User', userSchema);
