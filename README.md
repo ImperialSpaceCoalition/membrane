@@ -29,6 +29,9 @@ cd social-network-api
 ## Usage
 Once the server is running, you can interact with the API using Insomnia or Postman. The API provides endpoints for managing users, thoughts, reactions, and friends.
 
+## Walkthrough Video
+
+
 ## Endpoints
 
 ### Users
